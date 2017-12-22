@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SSMPageHelper:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="SSMPageHelper.war">
+      <element id="artifact" artifact-name="SSMPageHelper:war exploded" />
+    </root>
+  </artifact>
+</component>

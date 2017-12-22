@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.animo.dao.ProductMapper" >
+  <resultMap id="BaseResultMap" type="com.animo.pojo.Product" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="des" property="des" jdbcType="VARCHAR" />
+    <result column="image_name" property="imageName" jdbcType="VARCHAR" />
+    <result column="discount" property="discount" jdbcType="TINYINT" />
+    <result column="type_id" property="typeId" jdbcType="BIGINT" />
+    <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+    <result column="image_size" property="imageSize" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="give_id" property="giveId" jdbcType="BIGINT" />
+    <result column="colour_id" property="colourId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, price, des, image_name, discount, type_id, image_url, image_size, create_time, 
+    update_time, give_id, colour_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_product
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_product
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.animo.pojo.Product" >
+    insert into t_product (id, title, price, 
+      des, image_name, discount, 
+      type_id, image_url, image_size, 
+      create_time, update_time, give_id, 
+      colour_id)
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{des,jdbcType=VARCHAR}, #{imageName,jdbcType=VARCHAR}, #{discount,jdbcType=TINYINT}, 
+      #{typeId,jdbcType=BIGINT}, #{imageUrl,jdbcType=VARCHAR}, #{imageSize,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{giveId,jdbcType=BIGINT}, 
+      #{colourId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.animo.pojo.Product" >
+    insert into t_product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="des != null" >
+        des,
+      </if>
+      <if test="imageName != null" >
+        image_name,
+      </if>
+      <if test="discount != null" >
+        discount,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="imageUrl != null" >
+        image_url,
+      </if>
+      <if test="imageSize != null" >
+        image_size,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="giveId != null" >
+        give_id,
+      </if>
+      <if test="colourId != null" >
+        colour_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="des != null" >
+        #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="imageName != null" >
+        #{imageName,jdbcType=VARCHAR},
+      </if>
+      <if test="discount != null" >
+        #{discount,jdbcType=TINYINT},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=BIGINT},
+      </if>
+      <if test="imageUrl != null" >
+        #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="imageSize != null" >
+        #{imageSize,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="giveId != null" >
+        #{giveId,jdbcType=BIGINT},
+      </if>
+      <if test="colourId != null" >
+        #{colourId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.animo.pojo.Product" >
+    update t_product
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="des != null" >
+        des = #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="imageName != null" >
+        image_name = #{imageName,jdbcType=VARCHAR},
+      </if>
+      <if test="discount != null" >
+        discount = #{discount,jdbcType=TINYINT},
+      </if>
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=BIGINT},
+      </if>
+      <if test="imageUrl != null" >
+        image_url = #{imageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="imageSize != null" >
+        image_size = #{imageSize,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="giveId != null" >
+        give_id = #{giveId,jdbcType=BIGINT},
+      </if>
+      <if test="colourId != null" >
+        colour_id = #{colourId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.animo.pojo.Product" >
+    update t_product
+    set title = #{title,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      des = #{des,jdbcType=VARCHAR},
+      image_name = #{imageName,jdbcType=VARCHAR},
+      discount = #{discount,jdbcType=TINYINT},
+      type_id = #{typeId,jdbcType=BIGINT},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      image_size = #{imageSize,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      give_id = #{giveId,jdbcType=BIGINT},
+      colour_id = #{colourId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectSexProduct" resultType="product">
+    SELECT p.id,p.title,p.price,p.image_url FROM t_product AS p  ORDER BY p.id limit 6;
+  </select>
+
+  <select id="listPager" resultType="product" parameterType="com.animo.common.Pager">
+    <![CDATA[
+          SELECT p.title,p.id FROM t_product AS p limit #{beginIndex}, #{pageSize}
+        ]]>
+  </select>
+
+  <select id="count" resultType="long">
+    <![CDATA[
+            select count(id) from t_product
+        ]]>
+  </select>
+
+</mapper>

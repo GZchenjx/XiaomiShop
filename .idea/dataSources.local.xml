@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="d_xiaomi@localhost" uuid="62b3c958-7da4-460a-ba0b-ab7cdd790260">
+      <database-info product="MySQL" version="5.7.18-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:d_xiaomi</introspection-schemas>
+      <resolve-scope>d_xiaomi:</resolve-scope>
+      <unqualified-resolve-schemas>d_xiaomi:</unqualified-resolve-schemas>
+    </data-source>
+  </component>
+</project>
